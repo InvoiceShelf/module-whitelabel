@@ -8,7 +8,7 @@
  * PHP version 8.1
  *
  * @category  Helpers
- * @package   Modules\Payments\Helpers
+ * @package   Modules\WhiteLabel\Helpers
  * @author    Rihards Simanovics <rihards.s@griffin-web.studio>
  * @copyright 2024 Rihards Simanovics
  * @license   GNU GPLv3
@@ -16,7 +16,7 @@
  * @link      https://invoiceshelf.com
  */
 
-namespace Modules\Payments\Helpers;
+namespace Modules\WhiteLabel\Helpers;
 
 use App\Models\Setting;
 
