@@ -33,6 +33,6 @@
       "section": "Tests"
     }
   ],
-  "commitUrlFormat": "https://github.com/rihards-simanovics/InvoiceShelf-white-label-module/commits/{{hash}}",
-  "compareUrlFormat": "https://github.com/rihards-simanovics/InvoiceShelf-white-label-module/compare/{{previousTag}}...{{currentTag}}"
+  "commitUrlFormat": "https://github.com/InvoiceShelf/module-whitelabel/commits/{{hash}}",
+  "compareUrlFormat": "https://github.com/InvoiceShelf/module-whitelabel/compare/{{previousTag}}...{{currentTag}}"
 }
