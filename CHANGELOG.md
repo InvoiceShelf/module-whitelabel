@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/InvoiceShelf/module-whitelabel/compare/v1.1.1...v1.1.2) (2025-02-10)
+
+
+### Bug Fixes
+
+* **VersionHelper:** replace Payments module namespace with WhiteLabel ([4a94a60](https://github.com/InvoiceShelf/module-whitelabel/commits/4a94a601c2ac5eae9cfe94ec6c1cddf900e63708))
+
+
+### Chores
+
+* **releaseVersion:** update versionrc with updated repo url ([3d05737](https://github.com/InvoiceShelf/module-whitelabel/commits/3d05737a288ad1f3769cc9f28452cd624ec1d64a))
+* update husky to support latest version ([ca22d95](https://github.com/InvoiceShelf/module-whitelabel/commits/ca22d95d38e5d9ac1028c5c44fd65a0518aedc1f))
+* update README.md ([31c8851](https://github.com/InvoiceShelf/module-whitelabel/commits/31c88517c0991ade1c085f19be4639a8cd0ec902))
+
 ### [1.1.1](https://github.com/rihards-simanovics/InvoiceShelf-white-label-module/compare/v1.1.0...v1.1.1) (2024-09-28)
 
 
