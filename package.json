@@ -7,7 +7,7 @@
     "watch": "vite build --watch",
     "serve": "vite preview",
     "test": "eslint ./resources/scripts --ext .js,.vue",
-    "prepare": "husky install",
+    "prepare": "husky",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
