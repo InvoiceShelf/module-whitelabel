@@ -23,13 +23,13 @@
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-vue": "^7.0.0-beta.4",
+    "husky": "^9.1.5",
     "postcss": "^8.2.13",
     "prettier": "^2.3.0",
     "sass": "^1.32.12",
     "standard-version": "^9.5.0",
     "tailwindcss": "^2.2.7",
-    "vite": "^2.0.1",
-    "husky": "^9.1.5"
+    "vite": "^2.0.1"
   },
   "dependencies": {
     "@headlessui/vue": "^1.4.0",
