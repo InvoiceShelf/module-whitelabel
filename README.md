@@ -6,14 +6,16 @@ Adds ability to customise your InvoiceShelf instance with logo and brand color.
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Update](#update)
-  - [Hard Stops](#hard-stops)
-- [Development](#development)
-  - [Prerequisites](#prerequisites)
-  - [Steps](#steps)
-- [Troubleshooting](#troubleshooting)
-- [Copyright](#copyright)
+- [Invoice Shelf - White Label Module](#invoice-shelf---white-label-module)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Update](#update)
+    - [Hard Stops](#hard-stops)
+  - [Development](#development)
+    - [Prerequisites](#prerequisites)
+    - [Steps](#steps)
+  - [Troubleshooting](#troubleshooting)
+  - [Copyright](#copyright)
 
 ## Installation
 
@@ -21,7 +23,7 @@ Adds ability to customise your InvoiceShelf instance with logo and brand color.
 2. Create `/Modules/` dir in your server InvoiceShelf project root. **NOTE:** make sure it's capitalised like in example, it's not a typo.
 3. Upload the `WhiteLabel.zip` into the newly created `/Modules/` dir.
 4. Unzip it.
-5. In your server InvoiceShelf project `/` root dir, run `php artisan install:module WhiteLabel 1.1.2`.
+5. In your server InvoiceShelf project `/` root dir, run `php artisan install:module WhiteLabel <semantic release version>` e.g. `php artisan install:module WhiteLabel 1.1.1`, please consult with `package.json` for correct release version number inside the release artifact.
 6. (optional) If you have any issues with your installed module, try clearing your browser's `cache`, `cookies`, and/or `site data`.
 
 ## Update
