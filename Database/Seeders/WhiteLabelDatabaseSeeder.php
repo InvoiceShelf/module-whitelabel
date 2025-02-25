@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Payments\Helpers\VersionHelper;
+use Modules\WhiteLabel\Helpers\VersionHelper;
 
 if (VersionHelper::checkAppVersion('<', '2.0.0')) {
     VersionHelper::aliasClass('InvoiceShelf\Models\User', 'App\Models\User');

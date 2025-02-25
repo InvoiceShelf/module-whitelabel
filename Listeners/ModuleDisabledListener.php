@@ -5,7 +5,7 @@ namespace Modules\WhiteLabel\Listeners;
 use App\Events\ModuleDisabledEvent;
 use App\Models\Company;
 use App\Models\Setting;
-use Modules\Payments\Helpers\VersionHelper;
+use Modules\WhiteLabel\Helpers\VersionHelper;
 
 if (VersionHelper::checkAppVersion('<', '2.0.0')) {
     VersionHelper::aliasClass('InvoiceShelf\Events\ModuleDisabledEvent', 'App\Events\ModuleDisabledEvent');

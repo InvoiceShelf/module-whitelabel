@@ -6,7 +6,7 @@ use App\Events\ModuleDisabledEvent;
 use App\Services\Module\ModuleFacade;
 use Illuminate\Support\ServiceProvider;
 use Modules\WhiteLabel\Listeners\ModuleDisabledListener;
-use Modules\Payments\Helpers\VersionHelper;
+use Modules\WhiteLabel\Helpers\VersionHelper;
 
 if (VersionHelper::checkAppVersion('<', '2.0.0')) {
     VersionHelper::aliasClass('InvoiceShelf\Events\ModuleDisabledEvent', 'App\Events\ModuleDisabledEvent');

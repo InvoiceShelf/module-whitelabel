@@ -6,7 +6,7 @@ use App\Models\CompanySetting;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Payments\Helpers\VersionHelper;
+use Modules\WhiteLabel\Helpers\VersionHelper;
 
 if (VersionHelper::checkAppVersion('<', '2.0.0')) {
     VersionHelper::aliasClass('InvoiceShelf\Models\CompanySetting', 'App\Models\CompanySetting');
