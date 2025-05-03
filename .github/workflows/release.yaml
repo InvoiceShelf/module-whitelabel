@@ -1,0 +1,60 @@
+name: release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: release
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: Checkout InvoiceShelf
+        uses: actions/checkout@v4
+        with:
+          repository: InvoiceShelf/InvoiceShelf
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          extensions: bcmath, curl, dom, gd, imagick, json, libxml, mbstring, pcntl, pdo, pdo_mysql, zip
+          coverage: none
+
+      - name: Install InvoiceShelf composer dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          composer-options: --no-dev
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install and build InvoiceShelf node dependencies
+        run: npm install && npm run build
+
+      - name: Checkout WhiteLabel module
+        uses: actions/checkout@v4
+        with:
+          path: Modules/WhiteLabel
+
+      - name: Install WhiteLabel module composer dependencies
+        uses: ramsey/composer-install@v2
+        with:
+          composer-options: --no-dev
+          working-directory: "Modules/WhiteLabel"
+
+      - name: Install and build WhiteLabel module package
+        run: bash ./Modules/WhiteLabel/scripts/artifact-gen.sh
+
+      - name: Publish package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+          REPO: ${{ github.repository }}
+        run: gh release upload -R $REPO $TAG ./Modules/WhiteLabel/build/WhiteLabel.zip
