@@ -256,14 +256,20 @@ async function saveCustomerPortalSettings() {
 
   let logoRes = await whiteLogoStore.updateLogo(logoData)
 
-  companyStore.selectedCompanySettings.customer_portal_logo = logoRes.data.url
+  let customerSettings = { ...customerPortalSettings }
+
+  if (logoRes.data.customerPortalLogoUrl) {
+    companyStore.selectedCompanySettings.customer_portal_logo =
+      logoRes.data.customerPortalLogoUrl
+  }
+
+  if (customerPortalTitle.value !== null) {
+    customerSettings.customer_portal_page_title = customerPortalTitle.value
+  }
 
   await companyStore.updateCompanySettings({
     data: {
-      settings: {
-        ...customerPortalSettings,
-        customer_portal_page_title: customerPortalTitle.value
-      },
+      settings: customerSettings,
     },
     message: 'settings.preferences.updated_message',
   })
