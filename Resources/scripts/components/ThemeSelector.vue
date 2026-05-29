@@ -66,7 +66,7 @@ import {
   RadioGroupLabel,
   RadioGroupOption,
 } from '@headlessui/vue'
-import { CheckCircleIcon } from '@heroicons/vue/solid'
+import { CheckCircleIcon } from '@heroicons/vue/20/solid'
 import themes from '~/scripts/themes'
 
 const props = defineProps({
