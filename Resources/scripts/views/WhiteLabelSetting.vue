@@ -216,33 +216,42 @@ utils.mergeSettings(adminPortalSettings, {
 })
 
 let customerLogoBlob = ref(null)
+let isCustomerLogoRemoved = ref(false)
 let adminLogoBlob = ref(null)
+let isAdminLogoRemoved = ref(false)
 let loginPageLogoBlob = ref(null)
+let isLoginPageLogoRemoved = ref(false)
 let isSavingCustomerSettings = ref(false)
 let isSavingAdminSettings = ref(false)
 
 function onCustomerLogoChange(fileName, file, fileCount, fileList) {
   customerLogoBlob.value = file
+  isCustomerLogoRemoved.value = false
 }
 
 function onCustomerLogoRemove() {
   customerLogoBlob.value = null
+  isCustomerLogoRemoved.value = true
 }
 
 function onAdminLogoChange(fileName, file, fileCount, fileList) {
   adminLogoBlob.value = file
+  isAdminLogoRemoved.value = false
 }
 
 function onAdminLogoRemove() {
   adminLogoBlob.value = null
+  isAdminLogoRemoved.value = true
 }
 
 function onLoginPageLogoChange(fileName, file, fileCount, fileList) {
   loginPageLogoBlob.value = file
+  isLoginPageLogoRemoved.value = false
 }
 
 function onLoginPageLogoRemove() {
   loginPageLogoBlob.value = null
+  isLoginPageLogoRemoved.value = true
 }
 
 async function saveCustomerPortalSettings() {
@@ -252,6 +261,10 @@ async function saveCustomerPortalSettings() {
 
   if (customerLogoBlob.value) {
     logoData.append('customer_portal_logo', customerLogoBlob.value)
+  }
+
+  if (isCustomerLogoRemoved.value) {
+    logoData.append("is_customer_portal_logo_removed", isCustomerLogoRemoved.value)
   }
 
   let logoRes = await whiteLogoStore.updateLogo(logoData)
@@ -280,8 +293,16 @@ async function saveAdminPortalSettings() {
     logoData.append('admin_portal_logo', adminLogoBlob.value)
   }
 
+  if (isAdminLogoRemoved.value) {
+    logoData.append('is_admin_portal_logo_removed', isAdminLogoRemoved.value)
+  }
+
   if (loginPageLogoBlob.value) {
     logoData.append('login_page_logo', loginPageLogoBlob.value)
+  }
+
+  if (isLoginPageLogoRemoved.value) {
+    logoData.append('is_login_page_logo_removed', isLoginPageLogoRemoved.value)
   }
 
   let logoRes = await whiteLogoStore.updateLogo(logoData)
