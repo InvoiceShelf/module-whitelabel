@@ -1,17 +1,31 @@
-// vite.config.js
-const path = require('path')
-const { defineConfig } = require('vite')
+import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { viteExternalsPlugin } from 'vite-plugin-externals'
+import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-module.exports = defineConfig({
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+export default defineConfig({
+  define: {
+    'process.env.NODE_ENV': '"production"',
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'Resources/scripts/module.js'),
-      name: 'MyLib',
+      name: 'WhiteLabel',
       fileName: (format) => `whitelabel.${format}.js`,
+      cssFileName: 'style',
     },
     outDir: './dist',
+    rolldownOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
   },
   resolve: {
     alias: {
@@ -20,9 +34,10 @@ module.exports = defineConfig({
     },
   },
   plugins: [
+    tailwindcss(),
     vue(),
-    viteExternalsPlugin({
-      vue: 'Vue',
-    }),
   ],
+  css: {
+    minify: false,
+  },
 })

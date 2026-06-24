@@ -2,13 +2,12 @@
 import { useNotificationStore } from '@/scripts/stores/notification'
 const { defineStore } = window.pinia
 
-export const useWhiteLabelStore = defineStore({
-  id: 'white-label',
+export const useWhiteLabelStore = defineStore('white-label', {
   actions: {
     updateLogo(data) {
       const notificationStore = useNotificationStore(true)
       return new Promise((resolve, reject) => {
-        window.axios
+        window.http
           .post('/api/m/white-label/upload-logos', data)
           .then((response) => {
             resolve(response)
