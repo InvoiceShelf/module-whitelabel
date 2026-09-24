@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * work on InvoiceShelf 2.3.0 and later: the store uses Pinia 3's `defineStore(id, options)` form and the host's HTTP client instead of the removed `window.axios`
 * saving the customer portal settings with an empty page title no longer fails with a server error
+* themes apply again on InvoiceShelf 2.3.0 and later, which reads the colour variables as full colours (Tailwind 4) rather than r, g, b triplets
 * build releases against InvoiceShelf's `2.x` branch with its toolchain (PHP 8.4, Node 24, pnpm)
 
 
