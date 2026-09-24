@@ -3,6 +3,12 @@ name: release
 on:
   release:
     types: [published]
+  # Rebuilds the zip for a release that already exists and replaces its asset.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing release tag, e.g. v1.1.1'
+        required: true
 
 permissions:
   contents: write
@@ -62,6 +68,6 @@ jobs:
       - name: Publish package
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ inputs.tag || github.ref_name }}
           REPO: ${{ github.repository }}
-        run: gh release upload -R $REPO $TAG ./Modules/WhiteLabel/build/WhiteLabel.zip
+        run: gh release upload --clobber -R $REPO $TAG ./Modules/WhiteLabel/build/WhiteLabel.zip
