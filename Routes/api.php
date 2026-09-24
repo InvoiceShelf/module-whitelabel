@@ -13,4 +13,8 @@ use Modules\WhiteLabel\Http\Controllers\UploadLogoController;
 |
 */
 
-Route::post('upload-logos', [UploadLogoController::class, 'uploadLogos']);
+// Signed-in company owners only: the logos change what every visitor of the
+// admin and customer portals sees.
+Route::middleware(['auth:sanctum', 'company'])->group(function () {
+    Route::post('upload-logos', [UploadLogoController::class, 'uploadLogos']);
+});
