@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/InvoiceShelf/module-whitelabel/compare/v1.1.4...v1.1.5) (2026-09-24)
+
+
+### Bug Fixes
+
+* uploaded logos are stored on the public disk, which is what `/storage` serves; they went to the default File Disk, so on installs whose default disk is not the local `storage/app` the logo URL did not exist
+* uploading logos requires signing in as the company owner, and accepts gif, jpg and png only
+
 ### [1.1.4](https://github.com/InvoiceShelf/module-whitelabel/compare/v1.1.3...v1.1.4) (2026-09-24)
 
 
