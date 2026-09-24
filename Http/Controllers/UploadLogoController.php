@@ -28,7 +28,7 @@ class UploadLogoController extends Controller
             $customerPortalLogoUrl = 'whitelabel/customer_portal_logo/'.$imageName;
 
             $settings = [
-                'customer_portal_logo' => $customerPortalLogoUrl
+                'customer_portal_logo' => $customerPortalLogoUrl,
             ];
 
             CompanySetting::setSettings($settings, $request->header('company'));
@@ -56,7 +56,7 @@ class UploadLogoController extends Controller
             'success' => true,
             'customerPortalLogoUrl' => $customerPortalLogoUrl,
             'adminPortalLogoUrl' => $adminPortalLogoUrl,
-            'loginPageLogoUrl' => $loginPageLogoUrl
+            'loginPageLogoUrl' => $loginPageLogoUrl,
         ], 200);
     }
 }

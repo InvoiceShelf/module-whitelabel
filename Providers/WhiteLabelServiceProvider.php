@@ -5,8 +5,8 @@ namespace Modules\WhiteLabel\Providers;
 use App\Events\ModuleDisabledEvent;
 use App\Services\Module\ModuleFacade;
 use Illuminate\Support\ServiceProvider;
-use Modules\WhiteLabel\Listeners\ModuleDisabledListener;
 use Modules\WhiteLabel\Helpers\VersionHelper;
+use Modules\WhiteLabel\Listeners\ModuleDisabledListener;
 
 if (VersionHelper::checkAppVersion('<', '2.0.0')) {
     VersionHelper::aliasClass('InvoiceShelf\Events\ModuleDisabledEvent', 'App\Events\ModuleDisabledEvent');
@@ -80,7 +80,7 @@ class WhiteLabelServiceProvider extends ServiceProvider
         $sourcePath = module_path($this->moduleName, 'Resources/views');
 
         $this->publishes([
-            $sourcePath => $viewPath
+            $sourcePath => $viewPath,
         ], ['views', $this->moduleNameLower.'-module-views']);
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
@@ -134,7 +134,7 @@ class WhiteLabelServiceProvider extends ServiceProvider
             'icon' => 'TagIcon',
             'owner_only' => true,
             'ability' => '',
-            'model' => ''
+            'model' => '',
         ];
 
         \Menu::make('setting_menu', function ($menu) use ($data) {
