@@ -262,7 +262,11 @@ async function saveCustomerPortalSettings() {
     data: {
       settings: {
         ...customerPortalSettings,
-        customer_portal_page_title: customerPortalTitle.value
+        // Company settings cannot be empty (the host stores '' as null into a
+        // NOT NULL column), so a blank title is left out rather than sent.
+        ...(customerPortalTitle.value
+          ? { customer_portal_page_title: customerPortalTitle.value }
+          : {}),
       },
     },
     message: 'settings.preferences.updated_message',

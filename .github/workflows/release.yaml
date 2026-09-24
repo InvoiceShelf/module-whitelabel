@@ -13,15 +13,18 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
-      - name: Checkout InvoiceShelf
+      # The module is for InvoiceShelf 2.x and bundles host code from it, so it is
+      # built against the 2.x branch, not the default branch (3.x).
+      - name: Checkout InvoiceShelf 2.x
         uses: actions/checkout@v4
         with:
           repository: InvoiceShelf/InvoiceShelf
+          ref: 2.x
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.4
           extensions: bcmath, curl, dom, gd, imagick, json, libxml, mbstring, pcntl, pdo, pdo_mysql, zip
           coverage: none
 
@@ -30,13 +33,17 @@ jobs:
         with:
           composer-options: --no-dev
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
-      - name: Install and build InvoiceShelf node dependencies
-        run: npm install && npm run build
+      # The module build resolves pinia, axios and host components from here.
+      - name: Install InvoiceShelf node dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Checkout WhiteLabel module
         uses: actions/checkout@v4

@@ -28,7 +28,6 @@ class ModuleDisabledListener
     /**
      * Handle the event.
      *
-     * @param ModuleDisabledEvent $event
      * @return void
      */
     public function handle(ModuleDisabledEvent $event)

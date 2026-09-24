@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/InvoiceShelf/module-whitelabel/compare/v1.1.3...v1.1.4) (2026-09-24)
+
+
+### Bug Fixes
+
+* work on InvoiceShelf 2.3.0 and later: the store uses Pinia 3's `defineStore(id, options)` form and the host's HTTP client instead of the removed `window.axios`
+* the module's stylesheet no longer breaks the app's layout on InvoiceShelf 2.3.0 and later (missing sidebar and header controls): it now sits in the app's Tailwind 4 `utilities` cascade layer instead of outside any layer
+* saving the customer portal settings with an empty page title no longer fails with a server error
+* themes apply again on InvoiceShelf 2.3.0 and later, which reads the colour variables as full colours (Tailwind 4) rather than r, g, b triplets
+* build releases against InvoiceShelf's `2.x` branch with its toolchain (PHP 8.4, Node 24, pnpm)
+
+
+### Documentation
+
+* say the module is for InvoiceShelf 2.x only, add a compatibility table and the cache step after installing
+
 ### [1.1.3](https://github.com/InvoiceShelf/module-whitelabel/compare/v1.1.2...v1.1.3) (2025-02-25)
 
 
